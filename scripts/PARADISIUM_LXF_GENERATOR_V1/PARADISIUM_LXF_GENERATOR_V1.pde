@@ -32,7 +32,7 @@ void setup() {
   if (USE_PEASY_CAM) {
     cam = new PeasyCam(this , width * 0.5 - 20, height * 0.5 + 30, 0, 600);
   }
-  size(840,740,P3D);
+  size(900,900,P3D);
   defineHexGrid();
   dumpCSV();  
   //dumpPointFile("_RGB",0);  // depricated. was for inital hexgrid testing only
@@ -44,8 +44,8 @@ void draw() {
   background(0);
   // do some matrix scaling and translation so we can stay in inches for units and still see it in viewport
   pushMatrix();
-  translate(HEXGRID_RADIUS,HEXGRID_RADIUS);  // nudge the layout over in the viewport
-  scale(0.5); 
+  translate(HEXGRID_RADIUS*1.5,HEXGRID_RADIUS*2);  // nudge the layout over in the viewport
+  scale(0.4); 
   drawTreeHexagons();
   drawTreeFixtures();
   drawTreeLabels();
@@ -54,33 +54,33 @@ void draw() {
 
 void defineHexGrid() {
   // these have been reordered to reflect the naming convention of the trees by the design team
-  trees.add(new Tree3D("A1",1,0,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_1));  
-  trees.add(new Tree3D("B2",2,0,TreeTypeEnum.TYPE_B,TreeClusterEnum.CLUSTER_1));  
-  trees.add(new Tree3D("E3",3,0,TreeTypeEnum.TYPE_E,TreeClusterEnum.CLUSTER_1));    
-  trees.add(new Tree3D("A4",4,0,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_1));    
-  trees.add(new Tree3D("B5",4,1,TreeTypeEnum.TYPE_B,TreeClusterEnum.CLUSTER_1));      
-  trees.add(new Tree3D("A6",4,2,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_1));      
-  trees.add(new Tree3D("D7",3,2,TreeTypeEnum.TYPE_D,TreeClusterEnum.CLUSTER_1));      
-  trees.add(new Tree3D("A8",2,2,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_1));      
-  trees.add(new Tree3D("B9",1,2,TreeTypeEnum.TYPE_B,TreeClusterEnum.CLUSTER_1));      
-  trees.add(new Tree3D("A10",2,4,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_2));      
-  trees.add(new Tree3D("B11",1,4,TreeTypeEnum.TYPE_B,TreeClusterEnum.CLUSTER_2));      
-  trees.add(new Tree3D("A12",0,5,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_2));      
-  trees.add(new Tree3D("C13",1,5,TreeTypeEnum.TYPE_C,TreeClusterEnum.CLUSTER_2));      
-  trees.add(new Tree3D("B14",1,6,TreeTypeEnum.TYPE_B,TreeClusterEnum.CLUSTER_2));      
-  trees.add(new Tree3D("A15",2,7,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_2));      
-  trees.add(new Tree3D("A16",3,5,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_2));      
-  trees.add(new Tree3D("D17",3,4,TreeTypeEnum.TYPE_D,TreeClusterEnum.CLUSTER_2));      
-  trees.add(new Tree3D("B18",4,6,TreeTypeEnum.TYPE_B,TreeClusterEnum.CLUSTER_2));      
-  trees.add(new Tree3D("A19",5,4,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_3));      
-  trees.add(new Tree3D("D20",5,3,TreeTypeEnum.TYPE_D,TreeClusterEnum.CLUSTER_3));      
-  trees.add(new Tree3D("A21",6,3,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_3));      
-  trees.add(new Tree3D("B22",6,2,TreeTypeEnum.TYPE_B,TreeClusterEnum.CLUSTER_3));      
-  trees.add(new Tree3D("B23",6,5,TreeTypeEnum.TYPE_B,TreeClusterEnum.CLUSTER_3));      
-  trees.add(new Tree3D("A24",7,5,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_3));      
-  trees.add(new Tree3D("C25",7,4,TreeTypeEnum.TYPE_C,TreeClusterEnum.CLUSTER_3));      
-  trees.add(new Tree3D("B26",8,4,TreeTypeEnum.TYPE_B,TreeClusterEnum.CLUSTER_3));      
-  trees.add(new Tree3D("A27",8,3,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_3));      
+  trees.add(new Tree3D("A1",0,0,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_1));  
+  trees.add(new Tree3D("B2",2,1,TreeTypeEnum.TYPE_B,TreeClusterEnum.CLUSTER_1));  
+  trees.add(new Tree3D("E3",3,1,TreeTypeEnum.TYPE_E,TreeClusterEnum.CLUSTER_1));    
+  trees.add(new Tree3D("A4",4,1,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_1));    
+  trees.add(new Tree3D("B5",4,2,TreeTypeEnum.TYPE_B,TreeClusterEnum.CLUSTER_1));      
+  trees.add(new Tree3D("A6",4,3,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_1));      
+  trees.add(new Tree3D("D7",3,3,TreeTypeEnum.TYPE_D,TreeClusterEnum.CLUSTER_1));      
+  trees.add(new Tree3D("A8",2,3,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_1));      
+  trees.add(new Tree3D("B9",1,3,TreeTypeEnum.TYPE_B,TreeClusterEnum.CLUSTER_1));      
+  trees.add(new Tree3D("A10",2,5,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_2));      
+  trees.add(new Tree3D("B11",1,5,TreeTypeEnum.TYPE_B,TreeClusterEnum.CLUSTER_2));      
+  trees.add(new Tree3D("A12",0,6,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_2));      
+  trees.add(new Tree3D("C13",1,6,TreeTypeEnum.TYPE_C,TreeClusterEnum.CLUSTER_2));      
+  trees.add(new Tree3D("B14",1,7,TreeTypeEnum.TYPE_B,TreeClusterEnum.CLUSTER_2));      
+  trees.add(new Tree3D("A15",1,9,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_2));      
+  trees.add(new Tree3D("A16",3,6,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_2));      
+  trees.add(new Tree3D("D17",3,5,TreeTypeEnum.TYPE_D,TreeClusterEnum.CLUSTER_2));      
+  trees.add(new Tree3D("B18",4,7,TreeTypeEnum.TYPE_B,TreeClusterEnum.CLUSTER_2));      
+  trees.add(new Tree3D("A19",5,5,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_3));      
+  trees.add(new Tree3D("D20",5,4,TreeTypeEnum.TYPE_D,TreeClusterEnum.CLUSTER_3));      
+  trees.add(new Tree3D("A21",6,4,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_3));      
+  trees.add(new Tree3D("B22",6,3,TreeTypeEnum.TYPE_B,TreeClusterEnum.CLUSTER_3));      
+  trees.add(new Tree3D("B23",6,6,TreeTypeEnum.TYPE_B,TreeClusterEnum.CLUSTER_3));      
+  trees.add(new Tree3D("A24",7,6,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_3));      
+  trees.add(new Tree3D("C25",7,5,TreeTypeEnum.TYPE_C,TreeClusterEnum.CLUSTER_3));      
+  trees.add(new Tree3D("B26",8,5,TreeTypeEnum.TYPE_B,TreeClusterEnum.CLUSTER_3));      
+  trees.add(new Tree3D("A27",10,4,TreeTypeEnum.TYPE_A,TreeClusterEnum.CLUSTER_3));      
 }
 
 void drawTreeHexagons() {
@@ -139,6 +139,7 @@ void dumpMainFile() {
 void dumpFixtureFiles() {
   int fixtureCount = 0;
   for (Tree3D t : trees) {
+    dumpTree(t);
     for (Fixture3D f : t.fixtures) {  
       dumpFixture(f,"RGB",0,fixtureCount);
       dumpFixture(f,"WHITE",3,fixtureCount);
@@ -147,19 +148,25 @@ void dumpFixtureFiles() {
   }
 }
 
+void dumpTree(Tree3D f) {
+
+}
+
 void dumpFixture(Fixture3D f,String suffix,int offset,int fixtureCount) {
   java.io.PrintWriter out1 = createWriter("PV1_" + String.format("%02d", fixtureCount + 1) + "_" + f.id() + "_" + suffix +".lxf");
   out1.write("{\n");
   out1.write("\"label\": \"" + f.id()  + "_" + suffix + "\",\n");  
   out1.write("\"tags\": [");
+  out1.write("\"" + "T." + ((fixtureCount/3) + 1) + "." + (((((f.dmx - 1) % 18) / 6) * 2) + 2)  + "." + suffix + "\"");
+  out1.write(", ");
+  
   out1.write("\"" + suffix +  "\"");
   out1.write("],\n");
   out1.write("\"parameters\": {},\n");
   out1.write("\"components\": [ \n");    
-  out1.write("{ \"type\": \"strip\", \"x\": " + (f.x + offset) + " , \"y\": " + (-1.0 * f.y) + ", \"z\": " + f.z + ", \"numPoints\": " + 1 + ", \"spacing\": " + 1 + " } \n");
+  out1.write("{ \"type\": \"strip\", \"x\": " + (-1.0 * f.x + offset) + " , \"y\": " + (-1.0 * f.y) + ", \"z\": " + f.z + ", \"numPoints\": " + 1 + ", \"spacing\": " + 1 + " } \n");
   out1.write("\n],\n");
-  out1.write("\"outputs\": [{\"protocol\": \"artnet\", \"universe\": " + 0 + ", \"host\": \"127.0.0.1\", \"channel\": " + (f.dmx - 1 + offset)   + ", \"num\": " + 1 + "}],\n");
-  out1.write("\"meta\": {\"key1\": \"val2\", \"key3\": \"val4\"}\n");
+  out1.write("\"outputs\": [{\"protocol\": \"artnet\", \"universe\": " + 0 + ", \"host\": \"10.10.10.222\", \"channel\": " + (f.dmx - 1 + offset)   + ", \"num\": " + 1 + "}]\n");
   out1.write("}\n"); 
   out1.close();  
 }
@@ -233,12 +240,24 @@ class Tree3D {
     centerY = (((0.5 * ((gridX % 2) + 1)) * hexH) + (gridY * hexH)); 
     id = sid;
     type = tt;
+    float fz = 0.0; // definitely look this up based on tree type   
     fr = FIXTURE_RADIUS; // maybe look this up based on tree type?
+      switch(type) {
+        case TYPE_A:
+          fz = 12 * 12; fr = 26 / 2; break;
+        case TYPE_B:
+          fz = 16 * 12; fr = 26 / 2; break;
+        case TYPE_C:
+          fz = 21 * 12; fr = 26 / 2; break;
+        case TYPE_D:
+          fz = 23 * 12; fr = 50 / 2; break;
+        case TYPE_E:
+          fz = 23 * 12; fr = 50 / 2; break;
+      }
     cluster = tc;
     for (int i = 0 ; i < 3 ; i++) {
       float fx = centerX + (cos(radians(-30 - i * -120)) * fr);
-      float fy = centerY + (sin(radians(-30 - i * -120)) * fr);      
-      float fz = 0.0; // definitely look this up based on tree type  
+      float fy = centerY + (sin(radians(-30 - i * -120)) * fr);
       fixtures.add(new Fixture3D(this,fx,fy,fz,2+i*2));
     }
   }
